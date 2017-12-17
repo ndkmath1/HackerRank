@@ -1,4 +1,4 @@
-package statistic;
+package statistics;
 
 import java.io.*;
 import java.util.*;

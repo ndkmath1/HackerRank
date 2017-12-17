@@ -1,4 +1,4 @@
-package statistic;
+package statistics;
 
 import java.util.Arrays;
 import java.util.HashMap;
