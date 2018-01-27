@@ -22,24 +22,33 @@ public class TheSimplestSum {
         return (int) s;
     }
     
+//    static int simplestSum(int k, long a, long b) {
+//    	long s = 0;
+//    	for (long i = a; i <= b; ++i) {
+//    		s += f(k, i, h(k, i));
+//    		s %= MAX;
+//    	}
+//    	return (int) s;
+//    }
+    
     static long getStep(long h, long i, long k) {
-    	long step = 0;
-    	double d = (Math.pow(k, h + 1) - 1) / (k - 1) - i;
-    	if ((d == Math.floor(d)) && !Double.isInfinite(d)) {
-    		step = (long) d;
-    	} else {
-    		step = (long) (d + 1);
-    	}
-    	return step;
+    	long numerator = (long) Math.pow(k, h + 1) - 1;
+    	return numerator / (k - 1) - i;
     }
     
     static long h(int k, long a) {
         return (long) (Math.log(1 + a * (k - 1)) / Math.log(k));
     }
     
-    static long f(int k, long n, long m) {
-        int v = k - 1;
-        return (long) (((double) k * (Math.pow(k, m) - 1)) / (v * v) - ((double) m) / v);
+//    static long f(int k, long n, long m) {
+//        int v = k - 1;
+//        return (long) (((double) k * (Math.pow(k, m) - 1)) / (v * v) - ((double) m) / v);
+//    }
+    
+    static long f(int k, long i, long m) {
+    	int v = k - 1;
+    	long numerator = (long) Math.pow(k, m + 1) - (m + 1) * k + m;
+    	return (int) (numerator / (v * v));
     }
 
     public static void main(String[] args) {
